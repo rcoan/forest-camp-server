@@ -11,11 +11,13 @@ defmodule ForestCampServerWeb.MatchController do
     render(conn, :index, matches: matches)
   end
 
-  def create(conn, %{"match" => match_params}) do
-    with {:ok, %Match{} = match} <- Games.create_match(match_params) do
+  def create(conn, %{"match" => match_params, "camp_id" => camp_id}) do
+    camp = Games.get_camp!(camp_id)
+
+    with {:ok, %Match{} = match} <- Games.create_match(camp, match_params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", ~p"/api/matches/#{match}")
+      |> put_resp_header("location", ~p"/api/camps/#{camp_id}/matches/#{match}")
       |> render(:show, match: match)
     end
   end

@@ -20,7 +20,7 @@ defmodule ForestCampServerWeb.MatchJSON do
       id: match.id,
       happens_at: match.happens_at,
       description: match.description,
-      camp: match.camp
+      camp: ForestCampServerWeb.CampJSON.data(match.camp)
     }
   end
 end

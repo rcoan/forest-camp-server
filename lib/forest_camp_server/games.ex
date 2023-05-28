@@ -19,6 +19,7 @@ defmodule ForestCampServer.Games do
   """
   def list_matches do
     Repo.all(Match)
+    |> Repo.preload(:camp)
   end
 
   @doc """
@@ -35,7 +36,10 @@ defmodule ForestCampServer.Games do
       ** (Ecto.NoResultsError)
 
   """
-  def get_match!(id), do: Repo.get!(Match, id)
+  def get_match!(id) do
+    Repo.get!(Match, id)
+    |> Repo.preload(:camp)
+  end
 
   @doc """
   Creates a match.
@@ -49,9 +53,10 @@ defmodule ForestCampServer.Games do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_match(attrs \\ %{}) do
+  def create_match(camp, attrs \\ %{}) do
     %Match{}
     |> Match.changeset(attrs)
+    |> Ecto.Changeset.put_assoc(:camp, camp)
     |> Repo.insert()
   end
 

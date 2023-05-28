@@ -15,14 +15,13 @@ defmodule ForestCampServerWeb.CampJSON do
     %{data: data(camp)}
   end
 
-  defp data(%Camp{} = camp) do
+  def data(%Camp{} = camp) do
     %{
       id: camp.id,
       name: camp.name,
       description: camp.description,
       address: camp.address,
-      cover_url: camp.cover_url,
-      matches: camp.matches
+      cover_url: camp.cover_url
     }
   end
 end

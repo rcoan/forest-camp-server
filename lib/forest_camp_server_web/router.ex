@@ -9,7 +9,7 @@ defmodule ForestCampServerWeb.Router do
     pipe_through :api
 
     resources "/camps", CampController, except: [:new, :edit] do
-      resources "/matches", MatchesController, except: [:new, :edit]
+      resources "/matches", MatchController, except: [:new, :edit]
     end
   end
 
