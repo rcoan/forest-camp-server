@@ -20,7 +20,7 @@ config :forest_camp_server, ForestCampServerWeb.Endpoint,
   pubsub_server: ForestCampServer.PubSub,
   live_view: [signing_salt: "VtFmMp7h"]
 
-config :my_app, MyApp.Guardian,
+config :forest_camp_server, MyApp.Guardian,
   issuer: "forest_camp_server",
   secret_key: System.get_env("GUARDIANSECRET")
 
