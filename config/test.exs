@@ -17,7 +17,7 @@ config :forest_camp_server, ForestCampServer.Repo,
 # you can enable the server option below.
 config :forest_camp_server, ForestCampServerWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "gmEF7/iQBFY38rCm5OuPcf7jVuASxctiJePHoPzgLiwlnBD7xGMdL+Epaqm8qZZk",
+  secret_key_base: "upvV2MHQ7b+APhxRzjb+ZzTtugHIXDIZEKsEMKbW2jZJkmRmBSKrnrSdYZUNaq4O",
   server: false
 
 # In test we don't send emails.

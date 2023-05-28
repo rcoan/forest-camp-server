@@ -7,7 +7,7 @@ defmodule ForestCampServerWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_forest_camp_server_key",
-    signing_salt: "sBkyYcux",
+    signing_salt: "DeV61Sqt",
     same_site: "Lax"
   ]
 
@@ -26,8 +26,6 @@ defmodule ForestCampServerWeb.Endpoint do
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
-    socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
-    plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
     plug Phoenix.Ecto.CheckRepoStatus, otp_app: :forest_camp_server
   end

@@ -14,11 +14,11 @@ config :forest_camp_server,
 config :forest_camp_server, ForestCampServerWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [
-    formats: [html: ForestCampServerWeb.ErrorHTML, json: ForestCampServerWeb.ErrorJSON],
+    formats: [json: ForestCampServerWeb.ErrorJSON],
     layout: false
   ],
   pubsub_server: ForestCampServer.PubSub,
-  live_view: [signing_salt: "rp0LYCeV"]
+  live_view: [signing_salt: "VtFmMp7h"]
 
 # Configures the mailer
 #
@@ -28,28 +28,6 @@ config :forest_camp_server, ForestCampServerWeb.Endpoint,
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
 config :forest_camp_server, ForestCampServer.Mailer, adapter: Swoosh.Adapters.Local
-
-# Configure esbuild (the version is required)
-config :esbuild,
-  version: "0.17.11",
-  default: [
-    args:
-      ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
-    cd: Path.expand("../assets", __DIR__),
-    env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
-  ]
-
-# Configure tailwind (the version is required)
-config :tailwind,
-  version: "3.2.7",
-  default: [
-    args: ~w(
-      --config=tailwind.config.js
-      --input=css/app.css
-      --output=../priv/static/assets/app.css
-    ),
-    cd: Path.expand("../assets", __DIR__)
-  ]
 
 # Configures Elixir's Logger
 config :logger, :console,
