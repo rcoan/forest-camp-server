@@ -10,7 +10,5 @@ defmodule ForestCampServer.Repo.Migrations.CreateCamps do
 
       timestamps()
     end
-
-    create index(:camps, [:matches_id])
   end
 end

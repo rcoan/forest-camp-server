@@ -14,6 +14,6 @@ defmodule ForestCampServer.Games.Match do
   def changeset(match, attrs) do
     match
     |> cast(attrs, [:happens_at, :description])
-    |> validate_required([:happens_at, :description])
+    |> validate_required([:happens_at, :description, :camp])
   end
 end

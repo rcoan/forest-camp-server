@@ -7,6 +7,10 @@ defmodule ForestCampServerWeb.Router do
 
   scope "/api", ForestCampServerWeb do
     pipe_through :api
+
+    resources "/camps", CampController, except: [:new, :edit] do
+      resources "/matches", MatchesController, except: [:new, :edit]
+    end
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

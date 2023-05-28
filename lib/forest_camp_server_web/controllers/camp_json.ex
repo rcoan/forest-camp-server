@@ -21,7 +21,8 @@ defmodule ForestCampServerWeb.CampJSON do
       name: camp.name,
       description: camp.description,
       address: camp.address,
-      cover_url: camp.cover_url
+      cover_url: camp.cover_url,
+      matches: camp.matches
     }
   end
 end
